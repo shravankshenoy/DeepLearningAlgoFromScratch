@@ -1,0 +1,51 @@
+My Numpy Code Base
+
+1. Counting number of non-zero elements in an array
+	 np.sum([1 for element in array if element != 0 ])
+
+2. Reversing the key and value of each item of a dictionary
+
+
+3. Add `elements of one list to another list
+ 
+	totalvocab_stemmed.extend(allwords_stemmed) 
+	
+4. Renaming columns of dataframe
+	
+	df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)
+	df.rename(columns=lambda x: x[1:], inplace=True)
+
+5. Enumerate elements of np.array datatype(NOTE: Directly applying enumerate does not work)
+	#from sklearn.metrics import cosine_similarity
+	list(enumerate(cosine_similarity([[1,1]],[[1,0],[1,1]]).tolist()[0]))
+	OR
+	my_list= cosine_similarity([[1,1]],[[1,0],[1,1]]).tolist()[0]
+	list(zip(list(range(len(my_list))),my_list))
+
+6. Sort tuples based on second parameter
+	tuple_list = [(0,0.9999),(1,0.707),(2,0.84)]
+	tuple_list.sort(key = lambda x:x[1] , reverse = True) #Highest value first
+	
+7. Reverse key and value of dictionary
+	my_dict = {'a':1,'b':2}
+	new_dict={}
+	for key,value in zip(my_dict.keys(),my_dict.values()): #Use zip when you want to operate on two different sets of values simultaneously
+		new_dict[value]=key
+		
+8. Sort rows of dataframe according to date and select rows within certain date range 
+	df['Date'] = pd.to_datetime(df['Date'])
+	df.sort_values(by=['Date'], ascending=False, inplace=True)
+	mask = (df['Date'] > start_date) & (df['Date'] <= end_date)
+	df.loc[mask]
+
+
+9. Dropping duplicate entries
+	df.drop_duplicates(subset='FirstName',keep = False, inplace =True)
+	
+#. Using counter (#from collections import counter) (when to use?)
+#. DateTImeIndex
+# .map vs .replace (https://stackoverflow.com/questions/35589820/python-map-function-inserting-nan-possible-to-return-original-values-instead)
+# np.reshape()
+
+My string code base
+
